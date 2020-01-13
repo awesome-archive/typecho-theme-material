@@ -19,9 +19,8 @@
 ## General 概括
 
 - Author 作者：Viosey
-- Version 版本：2.3.9
-- Compatibility 兼容：PHP 5.0+, MySQL, Typecho 1.0
-- Material QQ 群：566308505
+- Version 版本：3.0.0 Final
+- Compatibility 兼容：PHP 5.4+, MySQL, Typecho 1.0
 - [![Gitter](https://img.shields.io/gitter/room/material-theme/typecho.svg?style=flat-square)](https://gitter.im/material-theme/typecho?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
 
@@ -32,6 +31,7 @@
 - 自带中英文界面语言
 - 自带多种功能与特效
 - pjax 无刷新跳转
+- PanGu.js 中英文之间自动添加空格（可选）
 
 ## Demo 演示
 
@@ -41,7 +41,7 @@ Experience the Material theme in live: [typecho-theme-material Demo](https://blo
 
 体验 Material 主题: [typecho-theme-material 演示](https://blog.viosey.com)
 
->注意：此演示基于 Hexo，并使用了 [hexo-theme-material](https://github.com/viosey/hexo-theme-material) 主题，与 [typecho-theme-material](https://github.com/viosey/typecho-theme-material) 有一些差异。
+>注意：此演示基于 Hexo，并使用了 [hexo-theme-material](https://github.com/viosey/hexo-theme-material) 主题，与 [typecho-theme-material](https://github.com/viosey/typecho-theme-material) 有较大差异。
 
 ## Setup 设置
 

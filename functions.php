@@ -1,403 +1,8 @@
 <?php
 
 //Appearance setup
-function themeConfig($form) {
-
-    echo "
-    <style>
-        body{
-            background-color:#F5F5F5;
-        }
-        @media screen and (min-device-width: 1024px) {
-            ::-webkit-scrollbar-track {
-            	background-color: rgba(255,255,255,0);
-            }
-
-            ::-webkit-scrollbar {
-            	width: 6px;
-            	background-color: rgba(255,255,255,0);
-            }
-
-            ::-webkit-scrollbar-thumb {
-                border-radius: 3px;
-            	background-color: rgba(193,193,193,1);
-            }
-        }
-        .typecho-head-nav{
-            background-color:#673AB7;
-        }
-        #typecho-nav-list .parent a:hover, #typecho-nav-list .focus .parent a, #typecho-nav-list .root:hover .parent a{
-            background: RGBA(255, 255, 255, 0);
-        }
-        #typecho-nav-list{
-            display: none;
-        }
-        .typecho-head-nav .operate a{
-            border:0;
-            color:rgba(255,255,255,.6);
-        }
-        .typecho-head-nav .operate a:hover,
-        .typecho-head-nav .operate a:focus{
-            color:rgba(255,255,255,.8);
-            background-color:#673AB7;
-            outline:none;
-        }
-        .body.container{
-            min-width: 100% !important;
-            padding:0px;
-        }
-        .row {
-            margin:0px;
-        }
-        .col-mb-12{
-            padding:0 !important;
-        }
-        .typecho-page-title{
-            height:100px;
-            padding: 10px 40px 20px 40px;
-            background-color:#673AB7;
-            color:#FFF;
-            font-size: 24px;
-        }
-        .typecho-option-tabs{
-            padding: 0;
-            margin: 0;
-            height: 60px;
-            background-color: #512DA8;
-            margin-bottom: 40px !important;
-            padding-left:25px;
-        }
-        .typecho-option-tabs li{
-            margin: 0;
-            border: none;
-            float: left;
-            position: relative;
-            display: block;
-            text-align: center;
-            font-weight: 500;
-            font-size: 14px;
-            text-transform: uppercase;
-        }
-        .typecho-option-tabs a{
-            height:auto;
-            border:0;
-            color: rgba(255,255,255,.6);
-            background-color:rgba(255,255,255,0) !important;
-            padding: 17px 24px;
-        }
-        .typecho-option-tabs a:hover{
-            color:rgba(255,255,255,.8);
-        }
-        .message{
-            background-color:#673AB7 !important;
-            color:#fff;
-        }
-        .success{
-            background-color:#673AB7;
-            color:#fff;
-        }
-        .current{
-            background-color: #FFF;
-            height: 4px;
-            padding:0 !important;
-            bottom:0px;
-        }
-        .current a{
-            color:#FFF;
-        }
-        input[type=text],
-        textarea{
-            border: none;
-            border-bottom: 1px solid rgba(0,0,0,.60);
-            outline:none;
-            border-radius:0;
-        }
-        .typecho-option{
-            float:left;
-        }
-        .typecho-option span{
-            margin-right:0;
-        }
-        .typecho-option-submit{
-            position: fixed;
-            right: 32px;
-            bottom: 32px;
-        }
-        .typecho-option-submit button{
-            float:right;
-            background: #00BCD4;
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            color: #FFF;
-        }
-        .typecho-page-main .typecho-option textarea{
-            height:101px;
-        }
-        .typecho-option label.typecho-label{
-            font-weight: 500;
-            margin-bottom: 20px;
-            margin-top: 10px;
-            font-size: 16px;
-            padding-bottom: 5px;
-            border-bottom: 1px solid rgba(0,0,0,0.2);
-        }
-        #use-intro{
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            background-color: #fff;
-            margin: 8px;
-            padding: 8px;
-            padding-left:20px;
-            margin-bottom: 40px;
-        }
-        #typecho-option-item-loadingcolor-2 label,
-        #typecho-option-item-loadingbuffer-3 label,
-        #typecho-option-item-bgcolor-5 label,
-        #typecho-option-item-GradientType-6 label,
-        #typecho-option-item-TitleColor-8 label,
-        #typecho-option-item-RandomPicAmnt-9 label,
-        #typecho-option-item-DSshortname-11 label,
-        #typecho-option-item-CDNURL-12 label,
-        #typecho-option-item-langis-13 label,
-        #typecho-option-item-sticky_1-14 label,
-        #typecho-option-item-sticky_2-15 label,
-        #typecho-option-item-ThemeColor-16 label,
-        #typecho-option-item-alinkcolor-17 label,
-        #typecho-option-item-ChromeThemeColor-18 label,
-        #typecho-option-item-avatarURL-19 label,
-        #typecho-option-item-favicon-20 label,
-        #typecho-option-item-dailypic-21 label,
-        #typecho-option-item-logo-22 label,
-        #typecho-option-item-dailypicLink-23 label,
-        #typecho-option-item-logoLink-24 label,
-        #typecho-option-item-slogan-25 label,
-        #typecho-option-item-TwitterURL-27 label,
-        #typecho-option-item-FacebookURL-28 label,
-        #typecho-option-item-GooglePlusURL-29 label,
-        #typecho-option-item-WeiboURL-30 label,
-        #typecho-option-item-RobotoSource-32 label{
-            font-size:14px;
-            border-bottom:none;
-            padding-bottom:0;
-            font-weight:300;
-            margin-bottom: 10px;
-        }
-        #typecho-option-item-switch-0{
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            background-color: #fff;
-            margin: 8px 1%;
-            padding: 8px 2%;
-            width: 29%;
-        }
-        #typecho-option-item-analysis-1{
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            background-color: #fff;
-            margin: 8px 1%;
-            padding: 8px 2%;
-            width: 59%;
-        }
-        #typecho-option-item-loadingcolor-2,
-        #typecho-option-item-loadingbuffer-3{
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            background-color: #fff;
-            margin: 8px 1%;
-            padding: 8px 2%;
-            width:44%;
-            margin-bottom:40px;
-        }
-        #typecho-option-item-BGtype-4{
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            background-color: #fff;
-            margin: 8px 1%;
-            padding: 8px 2%;
-            width:94%;
-        }
-        #typecho-option-item-bgcolor-5,
-        #typecho-option-item-GradientType-6{
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            background-color: #fff;
-            margin: 8px 1%;
-            padding: 8px 2%;
-            width:44%;
-            margin-bottom:40px;
-        }
-        #typecho-option-item-ThumbnailOption-7{
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            background-color: #fff;
-            margin: 8px 1%;
-            padding: 8px 2%;
-            width: 59%;
-            margin-bottom:40px;
-        }
-        #typecho-option-item-TitleColor-8,
-        #typecho-option-item-RandomPicAmnt-9{
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            background-color: #fff;
-            margin: 8px 1%;
-            padding: 8px 2%;
-            width: 11.5%;
-            margin-bottom:40px;
-        }
-        #typecho-option-item-commentis-10{
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            background-color: #fff;
-            margin: 8px 1%;
-            padding: 8px 2%;
-            width: 59%;
-            margin-bottom:40px;
-        }
-        #typecho-option-item-DSshortname-11{
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            background-color: #fff;
-            margin: 8px 1%;
-            padding: 8px 2%;
-            width: 29%;
-            margin-bottom:40px;
-        }
-        #typecho-option-item-CDNURL-12{
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            background-color: #fff;
-            margin: 8px 1%;
-            padding: 8px 2%;
-            width:94%;
-            margin-bottom:40px;
-        }
-        #typecho-option-item-langis-13{
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            background-color: #fff;
-            margin: 8px 1%;
-            padding: 8px 2%;
-            width:44%;
-            margin-bottom:40px;
-        }
-        #typecho-option-item-sticky_1-14,
-        #typecho-option-item-sticky_2-15{
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            background-color: #fff;
-            margin: 0 1%;
-            padding: 8px 2%;
-            width:44%;
-        }
-        #typecho-option-item-sticky_1-14{
-            margin-top:8px;
-        }
-        #typecho-option-item-sticky_2-15{
-            margin-bottom:40px;
-        }
-        #typecho-option-item-ThemeColor-16,
-        #typecho-option-item-alinkcolor-17,
-        #typecho-option-item-ChromeThemeColor-18{
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            background-color: #fff;
-            margin: 8px 1%;
-            padding: 8px 2%;
-            width:27.333%;
-            margin-bottom:40px;
-        }
-        #typecho-option-item-avatarURL-19,
-        #typecho-option-item-favicon-20{
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            background-color: #fff;
-            margin: 8px 1%;
-            padding: 8px 2%;
-            width:44%;
-            margin-bottom:40px;
-        }
-        #typecho-option-item-dailypic-21,
-        #typecho-option-item-logo-22{
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            background-color: #fff;
-            margin: 8px 1%;
-            padding: 8px 2%;
-            width:44%;
-        }
-        #typecho-option-item-dailypicLink-23,
-        #typecho-option-item-logoLink-24{
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            background-color: #fff;
-            margin: 8px 1%;
-            padding: 8px 2%;
-            width:44%;
-        }
-        #typecho-option-item-slogan-25{
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            background-color: #fff;
-            margin: 8px 1%;
-            padding: 8px 2%;
-            width:94%;
-            margin-bottom:40px;
-        }
-        #typecho-option-item-footersns-26{
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            background-color: #fff;
-            margin: 8px 1%;
-            padding: 8px 2%;
-            width:94%;
-        }
-        #typecho-option-item-TwitterURL-27,
-        #typecho-option-item-FacebookURL-28,
-        #typecho-option-item-GooglePlusURL-29,
-        #typecho-option-item-WeiboURL-30{
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            background-color: #fff;
-            margin: 8px 1%;
-            padding: 8px 2%;
-            width:44%;
-        }
-        #typecho-option-item-GooglePlusURL-29,
-        #typecho-option-item-WeiboURL-30{
-            margin-bottom:40px;
-        }
-        #typecho-option-item-CustomFonts-31{
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            background-color: #fff;
-            margin: 8px 1%;
-            padding: 8px 2%;
-            width: 94%;
-        }
-        #typecho-option-item-RobotoSource-32{
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
-            background-color: #fff;
-            margin: 8px 1%;
-            padding: 8px 2%;
-            width: 94%;
-            margin-bottom: 40px;
-        }
-        @media screen and (max-width:480px){
-            .typecho-option{
-                width:94% !important;
-                margin-bottom: 20px !important;
-            }
-            .typecho-option-tabs li{
-                width:33%;
-            }
-            .typecho-option-tabs{
-                padding-left:0;
-            }
-            .typecho-option-tabs a{
-                padding:17px 10px;
-            }
-        }
-        @media screen and (min-width: 480px) and (max-width: 700px){
-            #typecho-option-item-loadingcolor-2, #typecho-option-item-loadingbuffer-3{
-                width:26.5%;
-            }
-            #typecho-option-item-avatarURL-19{
-                margin-bottom:8px;
-            }
-        }
-        @media screen and (min-width: 768px) and (max-width: 1033px) {
-            #typecho-option-item-loadingcolor-2, #typecho-option-item-loadingbuffer-3{
-                width:26.5%;
-            }
-        }
-        .typecho-foot{
-            padding: 16px 40px;
-            color: rgb(158, 158, 158);
-            background-color: rgb(66, 66, 66);
-            margin-top: 80px;
-        }
-    </style>
-    ";
-
+function themeConfig($form)
+{
     echo '<p style="font-size:14px;" id="use-intro">
     <span style="display: block;
     margin-bottom: 10px;
@@ -415,20 +20,21 @@ function themeConfig($form) {
             'ShowLoadingLine' => _t('顶部 loading 加载进度条效果'),
             'PJAX' => _t('使用 pjax'),
             'atargetblank' => _t('链接以新标签页形式打开'),
+            'Pangu' => _t('引用 Pangu.js 实现中英文间自动添加空格'),
         ),
 
         //Default choose
-        array('ShowUpyun','SmoothScroll','ShowLoadingLine','PJAX'), _t('功能开关')
+        array('SmoothScroll','ShowLoadingLine','PJAX','Pangu'), _t('功能开关')
     );
     $form->addInput($switch->multiMode());
 
-    $analysis = new Typecho_Widget_Helper_Form_Element_Textarea('analysis', NULL, NULL, _t('网站统计代码 + 自定义字体源'), _t('填入如 Google Analysis 的第三方统计代码或字体源'));
+    $analysis = new Typecho_Widget_Helper_Form_Element_Textarea('analysis', null, null, _t('网站统计代码 + 自定义字体源'), _t('填入如 Google Analysis 的第三方统计代码或字体源'));
     $form->addInput($analysis);
 
-    $loadingcolor = new Typecho_Widget_Helper_Form_Element_Text('loadingcolor', NULL, NULL, _t('loading 加载进度条颜色'),_t('打开 "功能开关" 中的 loading 加载进度条后, 在这里设置进度条的颜色, 默认为蓝色'));
+    $loadingcolor = new Typecho_Widget_Helper_Form_Element_Text('loadingcolor', null, null, _t('loading 加载进度条颜色'), _t('打开 "功能开关" 中的 loading 加载进度条后, 在这里设置进度条的颜色, 默认为蓝色'));
     $form->addInput($loadingcolor);
 
-    $loadingbuffer = new Typecho_Widget_Helper_Form_Element_Text('loadingbuffer', NULL, _t('800'), _t('loading 加载缓冲时间'),_t('loading 加载进度条的缓冲时间, 单位为毫秒 ms, 默认为 800ms'));
+    $loadingbuffer = new Typecho_Widget_Helper_Form_Element_Text('loadingbuffer', null, _t('800'), _t('loading 加载缓冲时间'), _t('loading 加载进度条的缓冲时间, 单位为毫秒 ms, 默认为 800ms'));
     $form->addInput($loadingbuffer);
 
     $BGtype = new Typecho_Widget_Helper_Form_Element_Radio('BGtype',
@@ -439,11 +45,11 @@ function themeConfig($form) {
         ),
 
         //Default choose
-        '1',_t('背景设置'),_t("选择背景方案, 对应填写下方的 '<b>背景颜色 / 图片</b>' 或选择 '<b>渐变样式</b>', 这里默认使用图片背景.")
+        '1', _t('背景设置'), _t("选择背景方案, 对应填写下方的 '<b>背景颜色 / 图片</b>' 或选择 '<b>渐变样式</b>', 这里默认使用图片背景.")
     );
     $form->addInput($BGtype);
 
-    $bgcolor = new Typecho_Widget_Helper_Form_Element_Text('bgcolor', NULL, NULL, _t('背景颜色 / 图片'), _t('背景设置如果选择纯色背景, 这里就填写颜色代码; <br />背景设置如果选择图片背景, 这里就填写图片地址;<br />
+    $bgcolor = new Typecho_Widget_Helper_Form_Element_Text('bgcolor', null, null, _t('背景颜色 / 图片'), _t('背景设置如果选择纯色背景, 这里就填写颜色代码; <br />背景设置如果选择图片背景, 这里就填写图片地址;<br />
     不填写则默认显示 #F5F5F5 或主题文件夹下的 /img/bg.jpg'));
     $form->addInput($bgcolor);
 
@@ -477,10 +83,10 @@ function themeConfig($form) {
     );
     $form->addInput($ThumbnailOption);
 
-    $TitleColor = new Typecho_Widget_Helper_Form_Element_Text('TitleColor', NULL, _t('#FFF'), _t('缩略图为纯色时的颜色'), _t('填入颜色代码'));
+    $TitleColor = new Typecho_Widget_Helper_Form_Element_Text('TitleColor', null, _t('#FFF'), _t('缩略图为纯色时的颜色'), _t('填入颜色代码'));
     $form->addInput($TitleColor);
 
-    $RandomPicAmnt = new Typecho_Widget_Helper_Form_Element_Text('RandomPicAmnt', NULL, _t('5'), _t('随机缩略图数量'), _t('img/random 图片的数量'));
+    $RandomPicAmnt = new Typecho_Widget_Helper_Form_Element_Text('RandomPicAmnt', null, _t('19'), _t('随机缩略图数量'), _t('img/random 图片的数量'));
     $form->addInput($RandomPicAmnt);
 
     $commentis = new Typecho_Widget_Helper_Form_Element_Radio('commentis',
@@ -493,10 +99,10 @@ function themeConfig($form) {
     );
     $form->addInput($commentis);
 
-    $DSshortname = new Typecho_Widget_Helper_Form_Element_Text('DSshortname', NULL, NULL, '多说二级域名 (short_name)', '要使用多说评论, 在这里填入多说的 short_name, 即二级域名.');
+    $DSshortname = new Typecho_Widget_Helper_Form_Element_Text('DSshortname', null, null, '多说二级域名 (short_name)', '要使用多说评论, 在这里填入多说的 short_name, 即二级域名.');
     $form->addInput($DSshortname);
 
-    $CDNURL = new Typecho_Widget_Helper_Form_Element_Text('CDNURL', NULL, NULL, _t('CDN 地址'), _t("
+    $CDNURL = new Typecho_Widget_Helper_Form_Element_Text('CDNURL', null, null, _t('CDN 地址'), _t("
     新建一个'MaterialCDN' 文件夹, 把'css, fonts, img, js' 文件夹放进去, 然后把'MaterialCDN' 上传到到你的 CDN 储存空间根目录下<br />
     填入你的 CDN 地址, 如 <b>http://bucket.b0.upaiyun.com</b>"));
     $form->addInput($CDNURL);
@@ -508,44 +114,44 @@ function themeConfig($form) {
             '2' => _t('繁体中文 <br />')
         ),
 
-        '0', _t('界面语言设置'), _t("默认使用英文, 中文总感觉有些违和 _(:3」∠)_")
+        '0', _t('界面语言设置'), _t("默认使用英文")
     );
     $form->addInput($langis);
 
-    $sticky_1 = new Typecho_Widget_Helper_Form_Element_Text('sticky_1', NULL, NULL,'置顶文章 1 ID', NULL);
+    $sticky_1 = new Typecho_Widget_Helper_Form_Element_Text('sticky_1', null, null, '置顶文章 1 ID', null);
     $form->addInput($sticky_1->addRule('isInteger', '请填入数字'));
 
-    $sticky_2 = new Typecho_Widget_Helper_Form_Element_Text('sticky_2', NULL, NULL,'置顶文章 2 ID', '填写对应主题的 id 即可使文章标题在首页置顶显示');
+    $sticky_2 = new Typecho_Widget_Helper_Form_Element_Text('sticky_2', null, null, '置顶文章 2 ID', '填写对应主题的 id 即可使文章标题在首页置顶显示');
     $form->addInput($sticky_2->addRule('isInteger', '请填入数字'));
 
-    $ThemeColor = new Typecho_Widget_Helper_Form_Element_Text('ThemeColor', NULL, _t('#039BE5'), _t('主题颜色'), NULL);
+    $ThemeColor = new Typecho_Widget_Helper_Form_Element_Text('ThemeColor', null, _t('#039BE5'), _t('主题颜色'), null);
     $form->addInput($ThemeColor);
 
-    $alinkcolor = new Typecho_Widget_Helper_Form_Element_Text('alinkcolor', NULL, _t('#039BE5'), _t('超链接颜色'), NULL);
+    $alinkcolor = new Typecho_Widget_Helper_Form_Element_Text('alinkcolor', null, _t('#039BE5'), _t('超链接颜色'), null);
     $form->addInput($alinkcolor);
 
-    $ChromeThemeColor = new Typecho_Widget_Helper_Form_Element_Text('ChromeThemeColor', NULL, _t('#039BE5'), _t('Android Chrome 地址栏颜色'), NULL);
+    $ChromeThemeColor = new Typecho_Widget_Helper_Form_Element_Text('ChromeThemeColor', null, _t('#039BE5'), _t('Android Chrome 地址栏颜色'), null);
     $form->addInput($ChromeThemeColor);
 
-    $avatarURL = new Typecho_Widget_Helper_Form_Element_Text('avatarURL', NULL, NULL, '个人头像地址', '填入头像的地址, 如不填写则使用默认头像');
+    $avatarURL = new Typecho_Widget_Helper_Form_Element_Text('avatarURL', null, null, '个人头像地址', '填入头像的地址, 如不填写则使用默认头像');
     $form->addInput($avatarURL);
 
-    $favicon = new Typecho_Widget_Helper_Form_Element_Text('favicon', NULL, NULL, _t('favicon 地址'), _t('填入博客 favicon 的地址, 默认则不显示'));
+    $favicon = new Typecho_Widget_Helper_Form_Element_Text('favicon', null, null, _t('favicon 地址'), _t('填入博客 favicon 的地址, 默认则不显示'));
     $form->addInput($favicon);
 
-    $dailypic = new Typecho_Widget_Helper_Form_Element_Text('dailypic', NULL, NULL, _t('首页顶部左边的图片地址'), _t('填入图片地址, 图片显示在首页顶部左边位置'));
+    $dailypic = new Typecho_Widget_Helper_Form_Element_Text('dailypic', null, null, _t('首页顶部左边的图片地址'), _t('填入图片地址, 图片显示在首页顶部左边位置'));
     $form->addInput($dailypic);
 
-    $logo = new Typecho_Widget_Helper_Form_Element_Text('logo', NULL, NULL, _t('首页顶部右边 LOGO 图片地址'), _t('填入 LOGO 地址, 图片将显示于首页右上角板块'));
+    $logo = new Typecho_Widget_Helper_Form_Element_Text('logo', null, null, _t('首页顶部右边 LOGO 图片地址'), _t('填入 LOGO 地址, 图片将显示于首页右上角板块'));
     $form->addInput($logo);
 
-    $dailypicLink = new Typecho_Widget_Helper_Form_Element_Text('dailypicLink', NULL, _t('#'), _t('首页顶部左边图片的点击跳转地址'), _t('点击图片后, 想要跳转网页的地址'));
+    $dailypicLink = new Typecho_Widget_Helper_Form_Element_Text('dailypicLink', null, _t('#'), _t('首页顶部左边图片的点击跳转地址'), _t('点击图片后, 想要跳转网页的地址'));
     $form->addInput($dailypicLink);
 
-    $logoLink = new Typecho_Widget_Helper_Form_Element_Text('logoLink', NULL, NULL, _t('首页顶部右边 LOGO 的点击跳转地址'), _t('点击 LOGO 后, 想要跳转网页的地址'));
+    $logoLink = new Typecho_Widget_Helper_Form_Element_Text('logoLink', null, null, _t('首页顶部右边 LOGO 的点击跳转地址'), _t('点击 LOGO 后, 想要跳转网页的地址'));
     $form->addInput($logoLink);
 
-    $slogan = new Typecho_Widget_Helper_Form_Element_Text('slogan', NULL, _t('Nice to meet you'), _t('首页顶部左边的标语'), _t('填入自定义文字, 显示于首页顶部左边的图片上'));
+    $slogan = new Typecho_Widget_Helper_Form_Element_Text('slogan', null, _t('Nice to meet you'), _t('首页顶部左边的标语'), _t('填入自定义文字, 显示于首页顶部左边的图片上'));
     $form->addInput($slogan);
 
     $footersns = new Typecho_Widget_Helper_Form_Element_Checkbox('footersns',
@@ -554,25 +160,53 @@ function themeConfig($form) {
             'ShowFacebook' => _t('显示 Facebook 图标 &emsp;'),
             'ShowGooglePlus' => _t('显示 Google+ 图标 &emsp;'),
             'ShowWeibo' => _t('显示新浪微博图标 &emsp;'),
+            'ShowInstagram' => _t('显示 Instagram 图标 &emsp;'),
+            'ShowGithub' => _t('显示 Github 图标 &emsp;'),
+            'ShowTumblr' => _t('显示 Tumblr 图标 &emsp;'),
+            'ShowBilibili' => _t('显示 Bilibili 图标 &emsp;'),
+            'ShowTelegram' => _t('显示 Telegram 图标 &emsp;'),
+            'ShowZhihu' => _t('显示 Zhihu 图标 &emsp;'),
+            'ShowLinkedin' => _t('显示 Linkedin 图标 &emsp;'),
         ),
 
-        array('ShowTwitter','ShowFacebook','ShowGooglePlus'), _t('页脚 SNS 图标按钮显示设置'),_t('开启后, 按钮显示于博客页脚位置')
+        array('ShowTwitter','ShowFacebook','ShowGooglePlus'), _t('页脚 SNS 图标按钮显示设置'), _t('开启后, 按钮显示于博客页脚位置')
     );
     $form->addInput($footersns);
 
-    $TwitterURL = new Typecho_Widget_Helper_Form_Element_Text('TwitterURL', NULL, _t('https://twitter.com/viosey'), _t('Twitter 地址'), NULL);
+    $TwitterURL = new Typecho_Widget_Helper_Form_Element_Text('TwitterURL', null, _t('NULL'), _t('Twitter 地址'), null);
     $form->addInput($TwitterURL);
 
-    $FacebookURL = new Typecho_Widget_Helper_Form_Element_Text('FacebookURL', NULL, _t('https://www.facebook.com/viosey'), _t('Facebook 地址'), NULL);
+    $FacebookURL = new Typecho_Widget_Helper_Form_Element_Text('FacebookURL', null, _t('NULL'), _t('Facebook 地址'), null);
     $form->addInput($FacebookURL);
 
-    $GooglePlusURL = new Typecho_Widget_Helper_Form_Element_Text('GooglePlusURL', NULL, _t('https://plus.google.com/116465253856896614917'), _t('Google+ 地址'), NULL);
+    $GooglePlusURL = new Typecho_Widget_Helper_Form_Element_Text('GooglePlusURL', null, _t('NULL'), _t('Google+ 地址'), null);
     $form->addInput($GooglePlusURL);
 
-    $WeiboURL = new Typecho_Widget_Helper_Form_Element_Text('WeiboURL', NULL, NULL, _t('新浪微博地址'), NULL);
+    $WeiboURL = new Typecho_Widget_Helper_Form_Element_Text('WeiboURL', null, null, _t('新浪微博地址'), null);
     $form->addInput($WeiboURL);
+    
+    $InstagramURL = new Typecho_Widget_Helper_Form_Element_Text('InstagramURL', null, null, _t('Instagram 地址'), null);
+    $form->addInput($InstagramURL);
+    
+    $GithubURL = new Typecho_Widget_Helper_Form_Element_Text('GithubURL', null, null, _t('Github 地址'), null);
+    $form->addInput($GithubURL);
+    
+    $TumblrURL = new Typecho_Widget_Helper_Form_Element_Text('TumblrURL', null, null, _t('Tumblr 地址'), null);
+    $form->addInput($TumblrURL);
+    
+    $BilibiliURL = new Typecho_Widget_Helper_Form_Element_Text('BilibiliURL', null, null, _t('Bilibili 地址'), null);
+    $form->addInput($BilibiliURL);
+    
+    $TelegramURL = new Typecho_Widget_Helper_Form_Element_Text('TelegramURL', null, null, _t('Telegram 地址'), null);
+    $form->addInput($TelegramURL);
+    
+    $ZhihuURL = new Typecho_Widget_Helper_Form_Element_Text('ZhihuURL', null, null, _t('Zhihu 地址'), null);
+    $form->addInput($ZhihuURL);
+    
+    $LinkedinURL = new Typecho_Widget_Helper_Form_Element_Text('LinkedinURL', null, null, _t('Linkedin 地址'), null);
+    $form->addInput($LinkedinURL);
 
-    $CustomFonts = new Typecho_Widget_Helper_Form_Element_Text('CustomFonts', NULL, _t("Roboto, 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif"), _t('自定义字体'), NULL);
+    $CustomFonts = new Typecho_Widget_Helper_Form_Element_Text('CustomFonts', null, _t("Roboto, 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif"), _t('自定义字体'), null);
     $form->addInput($CustomFonts);
 
     $RobotoSource = new Typecho_Widget_Helper_Form_Element_Radio('RobotoSource',
@@ -582,20 +216,21 @@ function themeConfig($form) {
         '2' => _t('使用自定义字体源 (在上方"网站统计代码 + 自定义字体源"填入)')
     ),
 
-    '1',_t('Roboto 字体使用来源'),NULL);
+    '1', _t('Roboto 字体使用来源'), null);
     $form->addInput($RobotoSource);
 }
 
 //Homepage thumbnail
-function showThumbnail($widget){
+function showThumbnail($widget)
+{
     //If article no include picture, display random default picture
-    $rand = rand(1,$widget->widget('Widget_Options')->RandomPicAmnt); //Random number
+    $rand = rand(1, $widget->widget('Widget_Options')->RandomPicAmnt); //Random number
 
-    if(!empty($widget->widget('Widget_Options')->CDNURL)){
-		$random = $widget->widget('Widget_Options')->CDNURL. '/MaterialCDN/img/random/' . $rand . '.jpg';
-	}else{
-        $random = $widget->widget('Widget_Options')->themeUrl . '/img/random/' . $rand . '.jpg';
-	}//Random picture path
+    if (!empty($widget->widget('Widget_Options')->CDNURL)) {
+        $random = $widget->widget('Widget_Options')->CDNURL. '/MaterialCDN/img/random/material-' . $rand . '.png';
+    } else {
+        $random = $widget->widget('Widget_Options')->themeUrl . '/img/random/material-' . $rand . '.png';
+    }//Random picture path
 
 
     // If only one random default picture, delete the following "//"
@@ -605,51 +240,81 @@ function showThumbnail($widget){
     $pattern = '/\<img.*?src\=\"(.*?)\"[^>]*>/i';
 
     if (preg_match_all($pattern, $widget->content, $thumbUrl)) {
-             echo $thumbUrl[1][0];
-    }
-    else if ($attach->isImage) {
+        echo $thumbUrl[1][0];
+    } elseif ($attach->isImage) {
         echo $attach->url;
-    }
-    else {
+    } else {
         echo $random;
     }
 }
 
 //Random thumbnail
-function randomThumbnail($widget){
+function randomThumbnail($widget)
+{
     //If article no include picture, display random default picture
-    $rand = rand(1,$widget->widget('Widget_Options')->RandomPicAmnt); //Random number
+    $rand = rand(1, $widget->widget('Widget_Options')->RandomPicAmnt); //Random number
 
-    if(!empty($widget->widget('Widget_Options')->CDNURL)){
-		$random = $widget->widget('Widget_Options')->CDNURL. '/MaterialCDN/img/random/' . $rand . '.jpg';
-	}else{
-        $random = $widget->widget('Widget_Options')->themeUrl . '/img/random/' . $rand . '.jpg';
-	}//Random picture path
+    if (!empty($widget->widget('Widget_Options')->CDNURL)) {
+        $random = $widget->widget('Widget_Options')->CDNURL. '/MaterialCDN/img/random/material-' . $rand . '.png';
+    } else {
+        $random = $widget->widget('Widget_Options')->themeUrl . '/img/random/material-' . $rand . '.png';
+    }//Random picture path
 
     echo $random;
 }
 
-//Random article
-function theme_random_posts(){
-    $defaults = array(
-        'number' => 1,
-    );
-    $db = Typecho_Db::get();
-
-    $sql = $db->select()->from('table.contents')
-        ->where('status = ?','publish')
-        ->where('type = ?', 'post')
-        ->where('created <= unix_timestamp(now())', 'post') //avoid display the article which don't reach the publish time
-        ->limit($defaults['number'])
-        ->order('RAND()');
-
-    $result = $db->fetchAll($sql);
-    foreach($result as $val){
-        $val = Typecho_Widget::widget('Widget_Abstract_Contents')->filter($val);
-        echo $val['permalink'];
-    }
+function is_pjax()
+{
+    return array_key_exists('HTTP_X_PJAX', $_SERVER) && $_SERVER['HTTP_X_PJAX'];
 }
 
-function is_pjax(){
-    return array_key_exists('HTTP_X_PJAX', $_SERVER) && $_SERVER['HTTP_X_PJAX'];
+//Compress the code
+//Using <!--<nocompress>--><!--</nocompress>--> for compatiblity
+function compressHtml($html_source) {
+    $chunks = preg_split('/(<!--<nocompress>-->.*?<!--<\/nocompress>-->|<nocompress>.*?<\/nocompress>|<pre.*?\/pre>|<textarea.*?\/textarea>|<script.*?\/script>)/msi', $html_source, -1, PREG_SPLIT_DELIM_CAPTURE);
+    $compress = '';
+    foreach ($chunks as $c) {
+        if (strtolower(substr($c, 0, 19)) == '<!--<nocompress>-->') {
+            $c = substr($c, 19, strlen($c) - 19 - 20);
+            $compress .= $c;
+            continue;
+        } else if (strtolower(substr($c, 0, 12)) == '<nocompress>') {
+            $c = substr($c, 12, strlen($c) - 12 - 13);
+            $compress .= $c;
+            continue;
+        } else if (strtolower(substr($c, 0, 4)) == '<pre' || strtolower(substr($c, 0, 9)) == '<textarea') {
+            $compress .= $c;
+            continue;
+        } else if (strtolower(substr($c, 0, 7)) == '<script' && strpos($c, '//') != false && (strpos($c, "\r") !== false || strpos($c, "\n") !== false)) {
+            $tmps = preg_split('/(\r|\n)/ms', $c, -1, PREG_SPLIT_NO_EMPTY);
+            $c = '';
+            foreach ($tmps as $tmp) {
+                if (strpos($tmp, '//') !== false) {
+                    if (substr(trim($tmp), 0, 2) == '//') {
+                        continue;
+                    }
+                    $chars = preg_split('//', $tmp, -1, PREG_SPLIT_NO_EMPTY);
+                    $is_quot = $is_apos = false;
+                    foreach ($chars as $key => $char) {
+                        if ($char == '"' && $chars[$key - 1] != '\\' && !$is_apos) {
+                            $is_quot = !$is_quot;
+                        } else if ($char == '\'' && $chars[$key - 1] != '\\' && !$is_quot) {
+                            $is_apos = !$is_apos;
+                        } else if ($char == '/' && $chars[$key + 1] == '/' && !$is_quot && !$is_apos) {
+                            $tmp = substr($tmp, 0, $key);
+                            break;
+                        }
+                    }
+                }
+                $c .= $tmp;
+            }
+        }
+        $c = preg_replace('/[\\n\\r\\t]+/', ' ', $c);
+        $c = preg_replace('/\\s{2,}/', ' ', $c);
+        $c = preg_replace('/>\\s</', '> <', $c);
+        $c = preg_replace('/\\/\\*.*?\\*\\//i', '', $c);
+        $c = preg_replace('/<!--[^!]*-->/', '', $c);
+        $compress .= $c;
+    }
+    return $compress;
 }
